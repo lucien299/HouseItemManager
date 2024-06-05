@@ -23,7 +23,7 @@ from findstaff import views
 router = routers.DefaultRouter()
 router.register(r'house', views.HouseViewSet)
 router.register(r'room', views.RoomViewSet)
-router.register(r'staff', views.StaffViewSet)
+router.register(r'item', views.ItemViewSet)
 
 
 

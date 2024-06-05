@@ -17,18 +17,14 @@ class Room(models.Model):
         return self.room_name
 
 
-class Staff(models.Model):
-    staff_name = models.CharField(max_length=50)
-    staff_number= models.IntegerField()
+class Item(models.Model):
+    item_name = models.CharField(max_length=50)
+    item_number = models.IntegerField()
     room = models.ForeignKey(Room, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.staff_name
+        return self.item_name
 
     class Meta:
-        ordering = ['staff_name']
-
-
-
-
+        ordering = ['item_name']
 

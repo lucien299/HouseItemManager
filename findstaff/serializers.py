@@ -1,18 +1,18 @@
 from rest_framework import serializers
-from .models import House, Room, Staff
+from .models import House, Room, Item
 
 
-class StaffSerializer(serializers.ModelSerializer):
+class ItemSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Staff
-        fields = ['id', 'staff_name', 'staff_number', 'room']
+        model = Item
+        fields = ['id', 'item_name', 'item_number', 'room']
 
 
 class RoomSerializer(serializers.ModelSerializer):
-    staff_set = StaffSerializer(many=True, read_only=True)
+    item_name = ItemSerializer(many=True, read_only=True)
     class Meta:
         model = Room
-        fields = ['id', 'room_name', 'house', 'staff_set']
+        fields = ['id', 'room_name', 'house', 'item_name']
 
 
 
